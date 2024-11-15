@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="x-icon" href="image.png" width="40">
+    <title>Detention Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="bg-gray-50 p-8 font-roboto">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Detention Form Section -->
+      <div class="bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-10">
+        <img
+          src="https://marketing.uz/uploads/articles/5412/article-original.png"
+          alt="School Logo"
+          class="w-32 mx-auto mb-4"
+        />
+        <h1 class="text-3xl font-semibold text-center text-blue-600 mb-6">Detention Form</h1>
+
+        <form id="detention-form" class="space-y-6">
+          <!-- Name Field -->
+          <div>
+            <label class="block text-gray-700 font-medium">Ism Sharif</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="(❁´◡`❁)"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>  
+
+          <!-- Class Field -->
+          <div>
+            <label class="block text-gray-700 font-medium">Sinf</label>
+            <select
+              name="class"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="">Sinf tanlang👇</option>
+              <option value="5A">5А</option>
+              <option value="5B">5Б</option>
+              <option value="6A">6А</option>
+              <option value="6B">6Б</option>
+              <option value="7A">7А</option>
+              <option value="7B">7Б</option>
+              <option value="8A">8А</option>
+              <option value="8B">8Б</option>
+              <option value="9A">9А</option>
+              <option value="9B">9Б</option>
+              <option value="10A">10А</option>
+              <option value="10B">10Б</option>
+              <option value="11A">11А</option>
+              <option value="11B">11Б</option>
+            </select>
+          </div>
+
+          <!-- Reason Field -->
+          <div>
+            <label class="block text-gray-700 font-medium">Sabab</label>
+            <input
+              type="text"
+              name="reason"
+              placeholder="✍️"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <!-- Level Field -->
+          <div>
+            <label class="block text-gray-700 font-medium">Level</label>
+            <select
+              name="level"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="">Level tanlang👇</option>
+              <option value="Low">Low</option>
+              <option value="Middle">Middle</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
+          <!-- Teacher Field -->
+          <div>
+            <label class="block text-gray-700 font-medium">Ustozni tanlang</label>
+            <select
+              name="teacher"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="">Ustozni tanlang👇</option>
+              <option value="Ulugbek">Ulugbek</option>
+              <option value="Bekzod">Bekzod</option>
+              <option value="Sheroz">Sheroz</option>
+            </select>
+          </div>
+
+          <!-- Add Student Button -->
+          <div class="text-center">
+            <button
+              type="button"
+              onclick="addStudent()"
+              class="glow-on-hover"
+            >
+              Qoshish
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Student List Section -->
+      <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col justify-between">
+        <img
+          src="https://marketing.uz/uploads/articles/5412/article-original.png"
+          alt="School Logo"
+          class="w-32 mx-auto mb-4"
+        />
+        <h2 class="text-2xl font-semibold text-center text-blue-600 mb-4">Studentlar Spiskasi</h2>
+
+        <ul
+          id="student-list"
+          class="space-y-4 overflow-y-auto flex-grow pr-4"
+          style="max-height: 500px"
+        ></ul>
+
+        <!-- Send Button -->
+        <div class="text-center mt-6">
+          <button
+            type="button"
+            onclick="sendToTelegram()"
+            class="px-6 py-3 glow-on-hover"
+          >
+            Jonatish
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./java.js"></script>
+  </body>
+</html>
