@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Eater&family=Ga+Maamli&family=Oleo+Script:wght@400;700&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eater&family=Ga+Maamli&family=Oleo+Script:wght@400;700&family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap');
 
 :root {
   --clr-neon: #14f7ff;
@@ -9,7 +9,7 @@
 
 /* Ensure the body font is applied correctly */
 body {
-  font-family: "Oleo Script", system-ui;
+  font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
