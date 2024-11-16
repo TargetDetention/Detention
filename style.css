@@ -6,14 +6,13 @@
   --font-size: 3rem;
 }
 
-
-/* Ensure the body font is applied correctly */
 body {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff, #dfe7fd, #c2d4ff);
 }
 
 .fads {
@@ -24,7 +23,7 @@ body {
 .students {
   margin-top: 57px;
   box-shadow: 1px 1px 1px 1px gray;
-  height: auto;
+
 }
 
 .glow-on-hover {
@@ -98,26 +97,20 @@ body {
 
 /* General List Styles */
 #student-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  height: 450px; /* Fixed height */
+  overflow-y: auto; /* Vertical scrolling */
+  max-height: 500px;
+  padding-right: 4px; /* Optional space for better appearance */
 }
 
-#student-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  padding: 12px;
-  margin: 6px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background-color 0.5s ease;
+/* Hide the scrollbar */
+#student-list::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
 }
 
-#student-list li:hover {
-  transform: translateY(-5px);
-  background-color: #e9ecef;
+/* For Firefox */
+#student-list {
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
 }
 
 .student-name {
