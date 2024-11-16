@@ -127,8 +127,8 @@ function deleteStudent(index) {
 }
 
 function sendToTelegram() {
-  const token = "7881537270:AAGQkizmVJH4wB0xLx3-6zm3MmMBzmwnB8Y";
-  const chatId = "-1002475402801";
+  const token = "7518523766:AAEbIrHgawrjOBnpl73gPto5urP561woc1s";
+  const chatId = "7372115173";
 
   if (studentList.length === 0) {
     alert("Studentlar spiskasi bosh. Jonatishga xich narsa yoq.");
@@ -141,7 +141,8 @@ function sendToTelegram() {
 
   studentList.forEach((student, index) => {
     message +=
-      `${index + 1}) *Ismi:* ${student.name}\n` +
+      `№${index + 1}\n` +
+      `*Ismi:* ${student.name}\n` +
       `*Sinfi:* ${student.class}\n` +
       `*Sababi:* ${student.reason}\n` +
       `*Ustozi:* ${student.teacher}\n` +
