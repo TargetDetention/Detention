@@ -239,9 +239,9 @@ body {
 @media (max-width: 500px) {
    .fads {
     width: 110%;  /* Уменьшаем ширину блока до 90% */
-    height: 570px;  /* Высота будет автоматически подстраиваться */
-    margin: 0 auto; /* Центрируем блок */
-    padding: 15px;  /* Добавляем небольшие отступы */
+    height: 570px;  
+  margin: 0 auto; 
+    padding: 15px;  
    }
    .button-1 {
     width: 150px;
@@ -252,7 +252,7 @@ body {
    }
 
    .students {
-    height: 300px;  /* Высота будет автоматически подстраиваться */
+    height: 300px;  
     width: 120%;
    margin-top: 0;
    }
