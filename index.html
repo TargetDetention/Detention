@@ -17,16 +17,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <link rel="stylesheet" href="./style.css">
   </head>
-  <body class="bg-gray-50 p-8 font-roboto">
+  <body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-8 font-roboto">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
       <!-- Detention Form Section -->
-      <div class="bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-10">
+      <div class="bg-white shadow-lg rounded-xl p-6 transition-all duration-300 transform hover:scale-105">
         <img
           src="https://marketing.uz/uploads/articles/5412/article-original.png"
           alt="Target Logo"
           class="w-32 mx-auto mb-4"
         />
-        <h1 class="text-3xl font-semibold text-center text-blue-600 mb-6">Detention Form:</h1>
+        <h1 class="text-3xl font-semibold text-center text-blue-600 mb-6">Detention Form</h1>
 
         <form id="detention-form" class="space-y-6">
           <!-- Name Field -->
@@ -35,8 +35,8 @@
             <input
               type="text"
               name="name"
-              placeholder="👤Ismingiz"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="👤 Ism Sharif"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>  
@@ -46,7 +46,7 @@
             <label class="block text-gray-700 font-medium">Sinf</label>
             <select
               name="class"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             >
               <option value="">Sinf tanlang👇</option>
@@ -73,8 +73,8 @@
             <input
               type="text"
               name="reason"
-              placeholder="✍️Sababni yozing"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="✍️ Sababni yozing"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
@@ -84,7 +84,7 @@
             <label class="block text-gray-700 font-medium">Level</label>
             <select
               name="level"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             >
               <option value="">Level tanlang👇</option>
@@ -99,7 +99,7 @@
             <label class="block text-gray-700 font-medium">Ustozni tanlang</label>
             <select
               name="teacher"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             >
               <option value="">Ustozni tanlang👇</option>
@@ -114,7 +114,7 @@
             <button
               type="button"
               onclick="addStudent()"
-              class="glow-on-hover"
+              class="px-6 py-3 glow-on-hover"
             >
               Qoshish
             </button>
@@ -123,13 +123,15 @@
       </div>
 
       <!-- Student List Section -->
-      <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col justify-between">
+      <div class="bg-white shadow-lg rounded-xl p-6 flex flex-col justify-between">
         <img
           src="https://marketing.uz/uploads/articles/5412/article-original.png"
-          alt="School Logo"
+          alt="Target Logo"
           class="w-32 mx-auto mb-4"
         />
-        <h2 class="text-2xl font-semibold text-center text-blue-600 mb-4">Studentlar Spiskasi:</h2>
+        <h2 class="text-2xl font-semibold text-center text-blue-600 mb-4">
+          Spiskada <span id="student-count">0</span> ta student bor
+        </h2>        
 
         <ul
           id="student-list"
