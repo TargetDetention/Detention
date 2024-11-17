@@ -1,5 +1,28 @@
 const studentList = [];
 
+function getLessonForToday() {
+  const schedule = {
+    1: "Matematika",
+    2: "ES-IT",      
+    3: "Geometry",    
+    4: "ES-IT",       
+    5: "Matematika",  
+  };
+
+  const today = new Date().getDay(); 
+
+  if (today === 6) {
+    return "Bugun Shanba, detention yoq";  
+  } else if (today === 0) {
+    return "Bugun Yakshanba, detention yoq";  
+  }
+
+  const lesson = schedule[today] || "Detention kuni emas"; 
+
+  return lesson;
+}
+
+
 function addStudent() {
   event.preventDefault();
   const nameInput = document.querySelector('input[name="name"]');
@@ -45,8 +68,8 @@ function clearInputs() {
 
 function updateStudentList() {
   const list = document.getElementById("student-list");
-  const studentCount = document.getElementById("student-count"); // Get the student count element
-  list.innerHTML = ""; // Clear the current list
+  const studentCount = document.getElementById("student-count"); 
+  list.innerHTML = ""; 
 
   studentList.forEach((student, index) => {
     const li = document.createElement("li");
@@ -101,30 +124,22 @@ function updateStudentList() {
       "cursor-pointer",
       "ml-4"
     );
-  
-    // Add onclick event to the delete icon
+
     deleteIcon.onclick = () => {
-      console.log("Deleting student:", student.name); // Debugging log
+      console.log("Deleting student:", student.name); 
   
-      // Remove student from the studentList array
       studentList.splice(index, 1);
   
-      // Update localStorage with the new student list
       localStorage.setItem("studentList", JSON.stringify(studentList));
   
-      // Remove the list item (li) from the DOM
       list.removeChild(li);
   
-      // Update the student list and count
-      updateStudentList(); // Refresh the student list
+      updateStudentList(); 
     };
   
     li.append(infoContainer, moreLink, deleteIcon);
     list.appendChild(li);
   });
-  
-
-  // Update the student count dynamically
   studentCount.textContent = studentList.length;
 }
 
@@ -142,10 +157,9 @@ function showStudentDetails(student) {
 }
 
 function deleteStudent(index) {
-  // Удаляем студента по индексу
   studentList.splice(index, 1);
-  localStorage.setItem("studentList", JSON.stringify(studentList)); // Сохраняем обновленный список в localStorage
-  updateStudentList(); // Обновляем список студентов на экране
+  localStorage.setItem("studentList", JSON.stringify(studentList)); 
+  updateStudentList(); 
 }
 
 function sendToTelegram() {
@@ -157,9 +171,13 @@ function sendToTelegram() {
     return;
   }
 
+  const lesson = getLessonForToday();
+
   let message =
-    `*Дата:* ${new Date().toLocaleString("ru-RU")}\n` +
-    `*Detention spiskasida ${studentList.length} ta odam bor.*\n\n`; // O'zgartirilgan qator
+  `*Дата:* ${(new Date().toLocaleString("ru-RU"))}\n` +
+  `*Dars: ${(lesson)}*\n` +
+  `*Detentionga qolganlar ${(studentList.length.toString())} ta.*\n\n`;
+
 
   studentList.forEach((student, index) => {
     message +=
@@ -171,20 +189,20 @@ function sendToTelegram() {
       `*Leveli:* ${student.level}\n\n`;
   });
 
-  // При отправке нужно указать parse_mode: "Markdown"
   axios
     .post(`https://api.telegram.org/bot${token}/sendMessage`, {
       chat_id: chatId,
       text: message,
-      parse_mode: "Markdown", // Указывает использование Markdown
+      parse_mode: "Markdown",
     })
-    .then(() => {
+    .then((response) => {
+      console.log("Message sent successfully:", response.data);
       alert("Telegramga Jonatildi!");
-
       studentList.length = 0;
       updateStudentList();
     })
-    .catch(() => {
+    .catch((error) => {
+      console.error("Error sending message:", error.response?.data || error.message);
       alert("Telegramga Jonatishda hatolik!");
     });
 }
