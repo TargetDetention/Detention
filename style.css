@@ -15,17 +15,6 @@ body {
   background: linear-gradient(135deg, #f0f4ff, #dfe7fd, #c2d4ff);
 }
 
-.fads {
-  margin-top: auto;
-  box-shadow: 1px 1px 1px 1px gray;
-}
-
-.students {
-  margin-top: 57px;
-  box-shadow: 1px 1px 1px 1px gray;
-
-}
-
 .glow-on-hover {
   width: 200px;
   height: 45px;
