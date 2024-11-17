@@ -17,36 +17,34 @@
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <link rel="stylesheet" href="./style.css">
   </head>
-  <body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-8 font-roboto">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-      <!-- Detention Form Section -->
-      <div class="bg-white shadow-lg rounded-xl p-6 transition-all duration-300 transform hover:scale-105">
+  <body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4 font-roboto">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-2 gap-20">
+      
+      <div class="bg-gradient-to-br from-blue-300 to-indigo-500 shadow-xl rounded-xl p-8 transition-all duration-300 hover:shadow-2xl fads">
         <img
-          src="https://marketing.uz/uploads/articles/5412/article-original.png"
+          src="./target.png"
           alt="Target Logo"
           class="w-32 mx-auto mb-4"
         />
-        <h1 class="text-3xl font-semibold text-center text-blue-600 mb-6">Detention Form</h1>
+        <h1 class="text-3xl font-semibold text-center text-white mb-6">Detention Form</h1>
 
         <form id="detention-form" class="space-y-6">
-          <!-- Name Field -->
           <div>
-            <label class="block text-gray-700 font-medium">Ism Sharif</label>
+            <label class="block text-gray-200 font-medium">Ism Sharif</label>
             <input
               type="text"
               name="name"
               placeholder="👤 Ism Sharif"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             />
-          </div>  
+          </div>
 
-          <!-- Class Field -->
           <div>
-            <label class="block text-gray-700 font-medium">Sinf</label>
+            <label class="block text-gray-200 font-medium">Sinf</label>
             <select
               name="class"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             >
               <option value="">Sinf tanlang👇</option>
@@ -67,24 +65,22 @@
             </select>
           </div>
 
-          <!-- Reason Field -->
           <div>
-            <label class="block text-gray-700 font-medium">Sabab</label>
+            <label class="block text-gray-200 font-medium">Sabab</label>
             <input
               type="text"
               name="reason"
               placeholder="✍️ Sababni yozing"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
 
-          <!-- Level Field -->
           <div>
-            <label class="block text-gray-700 font-medium">Level</label>
+            <label class="block text-gray-200 font-medium">Level</label>
             <select
               name="level"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             >
               <option value="">Level tanlang👇</option>
@@ -94,12 +90,11 @@
             </select>
           </div>
 
-          <!-- Teacher Field -->
           <div>
-            <label class="block text-gray-700 font-medium">Ustozni tanlang</label>
+            <label class="block text-gray-200 font-medium">Ustozni tanlang</label>
             <select
               name="teacher"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             >
               <option value="">Ustozni tanlang👇</option>
@@ -109,12 +104,11 @@
             </select>
           </div>
 
-          <!-- Add Student Button -->
           <div class="text-center">
             <button
               type="button"
               onclick="addStudent()"
-              class="px-6 py-3 glow-on-hover"
+              class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
             >
               Qoshish
             </button>
@@ -122,29 +116,27 @@
         </form>
       </div>
 
-      <!-- Student List Section -->
-      <div class="bg-white shadow-lg rounded-xl p-6 flex flex-col justify-between">
+      <div class="bg-gradient-to-br from-green-300 to-teal-500 shadow-xl rounded-xl p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl students">
         <img
-          src="https://marketing.uz/uploads/articles/5412/article-original.png"
+          src="./target.png"
           alt="Target Logo"
-          class="w-32 mx-auto mb-4"
+          class="w-32 mx-auto mb-6"
         />
-        <h2 class="text-2xl font-semibold text-center text-blue-600 mb-4">
+        <h2 class="text-2xl font-semibold text-center text-white mb-4">
           Spiskada <span id="student-count">0</span> ta student bor
-        </h2>        
+        </h2>
 
         <ul
           id="student-list"
           class="space-y-4 overflow-y-auto flex-grow pr-4"
-          style="max-height: 500px"
+          style="max-height: 500px" 
         ></ul>
 
-        <!-- Send Button -->
         <div class="text-center mt-6">
           <button
             type="button"
             onclick="sendToTelegram()"
-            class="px-6 py-3 glow-on-hover"
+            class="w-full px-5 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300"
           >
             Jonatish
           </button>
