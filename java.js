@@ -45,6 +45,7 @@ function clearInputs() {
 
 function updateStudentList() {
   const list = document.getElementById("student-list");
+  const studentCount = document.getElementById("student-count"); // Get the student count element
   list.innerHTML = ""; // Clear the current list
 
   studentList.forEach((student, index) => {
@@ -65,18 +66,18 @@ function updateStudentList() {
       "duration-200",
       "ease-in-out"
     );
-
+  
     const infoContainer = document.createElement("div");
     infoContainer.classList.add("flex", "flex-col");
-
+  
     const nameSpan = document.createElement("span");
     nameSpan.textContent = student.name;
     nameSpan.classList.add("font-semibold", "text-gray-800");
-
+  
     const studentClassSpan = document.createElement("span");
     studentClassSpan.textContent = `Class: ${student.class}`;
     studentClassSpan.classList.add("text-sm", "text-gray-600");
-
+  
     const moreLink = document.createElement("p");
     moreLink.classList.add(
       "cursor-pointer",
@@ -87,9 +88,10 @@ function updateStudentList() {
     );
     moreLink.textContent = "More Info";
     moreLink.onclick = () => showStudentDetails(student);
-
+  
     infoContainer.append(nameSpan, studentClassSpan);
-
+  
+    // Create delete icon
     const deleteIcon = document.createElement("i");
     deleteIcon.classList.add(
       "fas",
@@ -99,19 +101,39 @@ function updateStudentList() {
       "cursor-pointer",
       "ml-4"
     );
-
+  
+    // Add onclick event to the delete icon
     deleteIcon.onclick = () => {
-      studentList.splice(index, 1); // Remove student from the array
-      localStorage.setItem("studentList", JSON.stringify(studentList)); // Update local storage
+      console.log("Deleting student:", student.name); // Debugging log
+  
+      // Remove student from the studentList array
+      studentList.splice(index, 1);
+  
+      // Update localStorage with the new student list
+      localStorage.setItem("studentList", JSON.stringify(studentList));
+  
+      // Remove the list item (li) from the DOM
+      list.removeChild(li);
+  
+      // Update the student list and count
       updateStudentList(); // Refresh the student list
     };
-
+  
     li.append(infoContainer, moreLink, deleteIcon);
     list.appendChild(li);
   });
+  
+
+  // Update the student count dynamically
+  studentCount.textContent = studentList.length;
 }
 
-
+document.getElementById("student-list").addEventListener("click", function (event) {
+  if (event.target && event.target.matches("i.fa-trash-alt")) {
+    const index = event.target.dataset.index;
+    deleteStudent(index);
+  }
+});
 
 function showStudentDetails(student) {
   alert(
@@ -120,10 +142,10 @@ function showStudentDetails(student) {
 }
 
 function deleteStudent(index) {
+  // Удаляем студента по индексу
   studentList.splice(index, 1);
-  localStorage.setItem("studentList", JSON.stringify(studentList));
-  
-  updateStudentList();
+  localStorage.setItem("studentList", JSON.stringify(studentList)); // Сохраняем обновленный список в localStorage
+  updateStudentList(); // Обновляем список студентов на экране
 }
 
 function sendToTelegram() {
