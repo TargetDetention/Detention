@@ -82,6 +82,7 @@ function updateStudentList() {
       "px-4",
       "py-3",
       "bg-white",
+      "bg-purple-to-r",
       "shadow-md",
       "mb-3",
       "hover:shadow-lg",
@@ -174,10 +175,9 @@ function sendToTelegram() {
   const lesson = getLessonForToday();
 
   let message =
-  `*Дата:* ${(new Date().toLocaleString("ru-RU"))}\n` +
-  `*Dars: ${(lesson)}*\n` +
-  `*Detentionga qolganlar ${(studentList.length.toString())} ta.*\n\n`;
-
+    `*Дата:* ${(new Date().toLocaleString("ru-RU"))}\n` +
+    `*Dars: ${(lesson)}*\n` +
+    `*Detentionga qolganlar ${(studentList.length.toString())} ta.*\n\n`;
 
   studentList.forEach((student, index) => {
     message +=
@@ -190,19 +190,36 @@ function sendToTelegram() {
   });
 
   axios
-    .post(`https://api.telegram.org/bot${token}/sendMessage`, {
-      chat_id: chatId,
-      text: message,
-      parse_mode: "Markdown",
-    })
-    .then((response) => {
-      console.log("Message sent successfully:", response.data);
-      alert("Telegramga Jonatildi!");
-      studentList.length = 0;
-      updateStudentList();
-    })
-    .catch((error) => {
-      console.error("Error sending message:", error.response?.data || error.message);
-      alert("Telegramga Jonatishda hatolik!");
+  .post(`https://api.telegram.org/bot${token}/sendMessage`, {
+    chat_id: chatId,
+    text: message,
+    parse_mode: "Markdown",
+  })
+  .then((response) => {
+    console.log("Message sent successfully:", response.data);
+    Swal.fire({
+      title: "Good job!",
+      text: "The list has been sent to Telegram!",
+      icon: "success",
+      confirmButtonText: "Ok",
     });
+    studentList.length = 0;  // Clear the list after sending
+    updateStudentList();     // Update UI
+  })
+  .catch((error) => {
+    console.error("Error sending message:", error.response?.data || error.message);
+    Swal.fire({
+      title: "Error!",
+      text: "Telegramga Jonatishda hatolik yuz berdi.",
+      icon: "error",
+      confirmButtonText: "Cancel",
+    }).then(() => {
+    });
+  });
 }
+
+// Listen to the "Send to Telegram" button
+document.getElementById("send-button").addEventListener("click", sendToTelegram);
+
+// Initialize the student list display
+updateStudentList();
