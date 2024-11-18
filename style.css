@@ -15,6 +15,18 @@ body {
   background: linear-gradient(135deg, #f0f4ff, #dfe7fd, #c2d4ff);
 }
 
+ /* Add custom margin to the buttons */
+.custom-btn {
+  margin-left: 10px;  /* Add space between buttons */
+  margin-right: 10px;
+}
+
+/* Optional: Add margin only to the cancel button to make it more separated */
+.custom-btn.cancelButton {
+  margin-left: 20px;  /* Adjust left margin for better space */
+}
+
+
 .glow-on-hover {
   width: 200px;
   height: 45px;
