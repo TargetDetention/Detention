@@ -3,9 +3,9 @@ const studentList = [];
 function getLessonForToday() {
   const schedule = {
     1: "Matematika",
-    2: "ES-IT",      
+    2: "Sat Math",      
     3: "Geometry",    
-    4: "ES-IT",       
+    4: "Sat Math",       
     5: "Matematika",  
   };
 
