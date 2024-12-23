@@ -165,7 +165,7 @@ function deleteStudent(index) {
 
 function sendToTelegram() {
   const token = "7518523766:AAEbIrHgawrjOBnpl73gPto5urP561woc1s";
-  const chatId = "7372115173";
+  const chatId = "-1002368165040";
 
   if (studentList.length === 0) {
     alert("Studentlar spiskasi bosh. Jonatishga xich narsa yoq.");
