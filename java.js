@@ -68,81 +68,116 @@ function clearInputs() {
 
 function updateStudentList() {
   const list = document.getElementById("student-list");
-  const studentCount = document.getElementById("student-count"); 
-  list.innerHTML = ""; 
+  const studentCount = document.getElementById("student-count");
+  list.innerHTML = "";
 
   studentList.forEach((student, index) => {
-    const li = document.createElement("li");
-    li.classList.add(
-      "flex",
-      "items-center",
-      "justify-between",
-      "border",
-      "rounded-lg",
-      "px-4",
-      "py-3",
-      "bg-white",
-      "bg-purple-to-r",
-      "shadow-md",
-      "mb-3",
-      "hover:shadow-lg",
-      "transition-all",
-      "duration-200",
-      "ease-in-out"
-    );
-  
+    const container = document.createElement("div");
+    container.style.display = "flex";
+    container.style.justifyContent = "space-between";
+    container.style.alignItems = "center";
+    container.style.border = "1px solid #ddd";
+    container.style.borderRadius = "8px";
+    container.style.padding = "16px";
+    container.style.background = "white";
+    container.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+    container.style.transition = "all 0.2s ease-in-out";
+    container.style.marginBottom = "12px";
+    container.classList.add("student-container");
+
+    container.addEventListener("mouseover", () => {
+      container.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.15)";
+    });
+
+    container.addEventListener("mouseout", () => {
+      container.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+    });
+
     const infoContainer = document.createElement("div");
-    infoContainer.classList.add("flex", "flex-col");
-  
+    infoContainer.style.display = "flex";
+    infoContainer.style.flexDirection = "column";
+
     const nameSpan = document.createElement("span");
     nameSpan.textContent = student.name;
-    nameSpan.classList.add("font-semibold", "text-gray-800");
-  
+    nameSpan.style.fontWeight = "bold";
+    nameSpan.style.color = "#333";
+
     const studentClassSpan = document.createElement("span");
     studentClassSpan.textContent = `Class: ${student.class}`;
-    studentClassSpan.classList.add("text-sm", "text-gray-600");
-  
-    const moreLink = document.createElement("p");
-    moreLink.classList.add(
-      "cursor-pointer",
-      "text-blue-500",
-      "hover:text-blue-700",
-      "text-sm",
-      "mt-1"
-    );
-    moreLink.textContent = "More Info";
-    moreLink.onclick = () => showStudentDetails(student);
-  
-    infoContainer.append(nameSpan, studentClassSpan);
-  
-    // Create delete icon
-    const deleteIcon = document.createElement("i");
-    deleteIcon.classList.add(
-      "fas",
-      "fa-trash-alt",
-      "text-red-500",
-      "hover:text-red-700",
-      "cursor-pointer",
-      "ml-4"
-    );
+    studentClassSpan.style.color = "#666";
+    studentClassSpan.style.fontSize = "14px";
 
-    deleteIcon.onclick = () => {
-      console.log("Deleting student:", student.name); 
-  
-      studentList.splice(index, 1);
-  
-      localStorage.setItem("studentList", JSON.stringify(studentList));
-  
-      list.removeChild(li);
-  
-      updateStudentList(); 
+    infoContainer.append(nameSpan, studentClassSpan);
+
+    const moreLink = document.createElement("p");
+    moreLink.textContent = "More Info";
+    moreLink.style.color = "#007bff";
+    moreLink.style.textDecoration = "none";
+    moreLink.style.cursor = "pointer";
+    moreLink.style.margin = "0 auto"; // Center the link in the container
+    moreLink.addEventListener("mouseover", () => {
+      moreLink.style.color = "#0056b3";
+    });
+    moreLink.addEventListener("mouseout", () => {
+      moreLink.style.color = "#007bff";
+    });
+    moreLink.onclick = () => showStudentDetails(student);
+
+    // Create delete button with trash icon
+    const deleteButton = document.createElement("button");
+    deleteButton.style.background = "none";
+    deleteButton.style.border = "none";
+    deleteButton.style.cursor = "pointer";
+
+    const deleteIcon = document.createElement("img");
+    deleteIcon.src = "./trash-solid.svg"; // Replace with the actual path to your trash icon
+    deleteIcon.alt = "Delete";
+    deleteIcon.style.width = "20px";
+    deleteIcon.style.height = "20px";
+    deleteIcon.style.filter = "invert(19%) sepia(94%) saturate(7493%) hue-rotate(356deg) brightness(98%) contrast(122%)"; // Red color
+
+    deleteButton.appendChild(deleteIcon);
+    deleteButton.onclick = () => {
+      deleteStudent(index, container);
     };
-  
-    li.append(infoContainer, moreLink, deleteIcon);
-    list.appendChild(li);
+
+    container.append(infoContainer, moreLink, deleteButton);
+    list.appendChild(container);
   });
   studentCount.textContent = studentList.length;
 }
+
+function deleteStudent(index, container) {
+  // Hide the container
+  container.style.display = "none";
+
+  // Remove student from the array
+  studentList.splice(index, 1);
+
+  // Save updated list to local storage
+  localStorage.setItem("studentList", JSON.stringify(studentList));
+
+  // Update student count
+  const studentCount = document.getElementById("student-count");
+  studentCount.textContent = studentList.length;
+}
+
+
+function deleteStudent(index, container) {
+  // Hide the container
+  container.style.display = "none";
+
+  // Remove student from the array
+  studentList.splice(index, 1);
+
+  // Save updated list to local storage
+  localStorage.setItem("studentList", JSON.stringify(studentList));
+
+  // Update student count
+  const studentCount = document.getElementById("student-count");
+  studentCount.textContent = studentList.length;
+}
+
 
 document.getElementById("student-list").addEventListener("click", function (event) {
   if (event.target && event.target.matches("i.fa-trash-alt")) {
