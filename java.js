@@ -130,7 +130,7 @@ function updateStudentList() {
     deleteButton.style.cursor = "pointer";
 
     const deleteIcon = document.createElement("img");
-    deleteIcon.src = "./trash-solid.svg"; // Replace with the actual path to your trash icon
+    deleteIcon.src = "./trash-can-regular.svg"; // Replace with the actual path to your trash icon
     deleteIcon.alt = "Delete";
     deleteIcon.style.width = "20px";
     deleteIcon.style.height = "20px";
