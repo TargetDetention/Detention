@@ -1,270 +1,270 @@
-@import url('https://fonts.googleapis.com/css2?family=Eater&family=Ga+Maamli&family=Oleo+Script:wght@400;700&family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Eater&family=Ga+Maamli&family=Oleo+Script:wght@400;700&family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap');
 
-:root {
-  --clr-neon: #14f7ff;
-  --clr-bg: #001414;
-  --font-size: 3rem;
-}
-
-body {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f0f4ff, #dfe7fd, #c2d4ff);
-}
-
- /* Add custom margin to the buttons */
-.custom-btn {
-  margin-left: 10px;  /* Add space between buttons */
-  margin-right: 10px;
-}
-
-/* Optional: Add margin only to the cancel button to make it more separated */
-.custom-btn.cancelButton {
-  margin-left: 20px;  /* Adjust left margin for better space */
-}
-
-
-.glow-on-hover {
-  width: 200px;
-  height: 45px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  margin-left: 1px;
-}
-
-.glow-on-hover:before {
-  content: '';
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 10s linear infinite;
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  border-radius: 10px;
-}
-
-.glow-on-hover:active {
-  color: #000;
-}
-
-.glow-on-hover:active:after {
-  background: transparent;
-}
-
-.glow-on-hover:hover:before {
-  opacity: 1;
-}
-
-.glow-on-hover:after {
-  z-index: -1;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #111;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-}
-
-
-.button-1 {
-  padding-top: 30px;
-  width: 200px;
-  height: 50px;
-  background-color: #333;
-  text-align: center;
-  color: white;
-   padding: 8px;
-   margin-left: 135px;
-   border-radius: 8px;
-   border: none;
-}
-
-/* General List Styles */
-#student-list {
-  height: 450px; /* Fixed height */
-  overflow-y: auto; /* Vertical scrolling */
-  max-height: 500px;
-  padding-right: 4px; /* Optional space for better appearance */
-}
-
-/* Hide the scrollbar */
-#student-list::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar */
-}
-
-/* For Firefox */
-#student-list {
-  scrollbar-width: none; /* Hides scrollbar in Firefox */
-}
-
-.student-name {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.student-info {
-  color: #007bff;
-  cursor: pointer;
-  font-size: 0.9rem;
-  margin-right: 15px;
-}
-
-.student-info:hover {
-  text-decoration: underline;
-}
-
-.delete-icon {
-  color: #e74c3c;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-.delete-icon:hover {
-  color: #c0392b;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  #student-list li {
-    flex-direction: column;
-    align-items: flex-start;
+  :root {
+    --clr-neon: #14f7ff;
+    --clr-bg: #001414;
+    --font-size: 3rem;
   }
-
-  .student-name,
-  .student-info,
-  .delete-icon {
-    margin-bottom: 5px;
-  }
-}
-
-
-
-
-@media (max-width: 900px) {
 
   body {
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4ff, #dfe7fd, #c2d4ff);
   }
-  .fads {
-    width: 100%; 
-    height: auto;  
-    padding-bottom: 400px;
-    margin: 0 auto; 
-    padding: 20px; 
+
+  /* Add custom margin to the buttons */
+  .custom-btn {
+    margin-left: 10px;  /* Add space between buttons */
+    margin-right: 10px;
   }
-  .button-1 {
-    margin-left: 40px;
-    margin-top: 10px;
+
+  /* Optional: Add margin only to the cancel button to make it more separated */
+  .custom-btn.cancelButton {
+    margin-left: 20px;  /* Adjust left margin for better space */
   }
-  
+
+
   .glow-on-hover {
-    width: 80%;  
-    height: 45px;  
-    font-size: 16px;  
-    border-radius: 8px;  
-    margin-left: 50px;
+    width: 200px;
+    height: 45px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin-left: 1px;
   }
 
   .glow-on-hover:before {
-    background-size: 300%;
-    filter: blur(4px);  
-  }
-  .bg-white {
-    padding: 20px;  
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 10s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
   }
 
-  input,
-  select {
-    width: 100%;  
-    padding: 12px;  
-    font-size: 16px; 
-    border-radius: 8px;  
+  .glow-on-hover:active {
+    color: #000;
   }
 
-  
-  .students {
-    margin-top: 20px;
-    padding: 20px;
+  .glow-on-hover:active:after {
+    background: transparent;
   }
-}
 
-@media (max-width: 700px) {
-  body {
-    display: flex;
-    align-content: center;
-    align-items: center;
+  .glow-on-hover:hover:before {
+    opacity: 1;
   }
-  .glow-on-hover {
-  margin-left: 30px;
-  }
-}
 
-@media (max-width: 600px) {
+  .glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
 
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .fads {
-    height: auto;
-  }
 
   .button-1 {
-    margin-left: 15px;
-    height: 40px;
+    padding-top: 30px;
+    width: 200px;
+    height: 50px;
+    background-color: #333;
+    text-align: center;
+    color: white;
+    padding: 8px;
+    margin-left: 135px;
+    border-radius: 8px;
+    border: none;
   }
-}
 
-@media (max-width: 500px) {
-   .fads {
-    width: 110%;  /* Уменьшаем ширину блока до 90% */
-    height: 570px;  
-  margin: 0 auto; 
-    padding: 15px;  
-   }
-   .button-1 {
-    width: 150px;
-    height: 35px;
-    margin-top: 25px;
-    align-items: center;
-    margin-left: 20px;
-   }
+  /* General List Styles */
+  #student-list {
+    height: 450px; /* Fixed height */
+    overflow-y: auto; /* Vertical scrolling */
+    max-height: 500px;
+    padding-right: 4px; /* Optional space for better appearance */
+  }
 
-   .students {
-    height: 300px;  
-    width: 120%;
-   margin-top: 0;
-   }
-   .glow-on-hover {
-    margin-bottom: 29px;
-    height: 35px;
-    margin-left: 20px;
-   }
+  /* Hide the scrollbar */
+  #student-list::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+  }
 
-   .fade-in {
-    font-size: 9px;
+  /* For Firefox */
+  #student-list {
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+  }
+
+  .student-name {
     font-weight: bold;
-   }
-}
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  .student-info {
+    color: #007bff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 15px;
+  }
+
+  .student-info:hover {
+    text-decoration: underline;
+  }
+
+  .delete-icon {
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+
+  .delete-icon:hover {
+    color: #c0392b;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #student-list li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .student-name,
+    .student-info,
+    .delete-icon {
+      margin-bottom: 5px;
+    }
+  }
+
+
+
+
+  @media (max-width: 900px) {
+
+    body {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+    .fads {
+      width: 100%; 
+      height: auto;  
+      padding-bottom: 400px;
+      margin: 0 auto; 
+      padding: 20px; 
+    }
+    .button-1 {
+      margin-left: 40px;
+      margin-top: 10px;
+    }
+    
+    .glow-on-hover {
+      width: 80%;  
+      height: 45px;  
+      font-size: 16px;  
+      border-radius: 8px;  
+      margin-left: 50px;
+    }
+
+    .glow-on-hover:before {
+      background-size: 300%;
+      filter: blur(4px);  
+    }
+    .bg-white {
+      padding: 20px;  
+    }
+
+    input,
+    select {
+      width: 100%;  
+      padding: 12px;  
+      font-size: 16px; 
+      border-radius: 8px;  
+    }
+
+    
+    .students {
+      margin-top: 20px;
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    body {
+      display: flex;
+      align-content: center;
+      align-items: center;
+    }
+    .glow-on-hover {
+    margin-left: 30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fads {
+      height: auto;
+    }
+
+    .button-1 {
+      margin-left: 15px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .fads {
+      width: 110%;  /* Уменьшаем ширину блока до 90% */
+      height: 570px;  
+    margin: 0 auto; 
+      padding: 15px;  
+    }
+    .button-1 {
+      width: 150px;
+      height: 35px;
+      margin-top: 25px;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    .students {
+      height: 300px;  
+      width: 120%;
+    margin-top: 0;
+    }
+    .glow-on-hover {
+      margin-bottom: 29px;
+      height: 35px;
+      margin-left: 20px;
+    }
+
+    .fade-in {
+      font-size: 9px;
+      font-weight: bold;
+    }
+  }
