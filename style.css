@@ -142,129 +142,180 @@
     color: #c0392b;
   }
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #student-list li {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .student-name,
-    .student-info,
-    .delete-icon {
-      margin-bottom: 5px;
-    }
+/* Responsive Design */
+@media (max-width: 768px) {
+  #student-list li {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
+  .student-name,
+  .student-info,
+  .delete-icon {
+    margin-bottom: 5px;
+  }
+}
 
 
 
-  @media (max-width: 900px) {
 
-    body {
-      align-items: center;
-      justify-content: center;
-      display: flex;
-    }
+@media (max-width: 900px) {
+
+  body {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .fads {
+    width: 100%; 
+    height: auto;  
+    padding-bottom: 400px;
+    margin: 0 auto; 
+    padding: 20px; 
+  }
+  .button-1 {
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+  
+  .glow-on-hover {
+    width: 80%;  
+    height: 45px;  
+    font-size: 16px;  
+    border-radius: 8px;  
+    margin-left: 50px;
+  }
+
+  .glow-on-hover:before {
+    background-size: 300%;
+    filter: blur(4px);  
+  }
+  .bg-white {
+    padding: 20px;  
+  }
+
+  input,
+  select {
+    width: 100%;  
+    padding: 12px;  
+    font-size: 16px; 
+    border-radius: 8px;  
+  }
+
+  
+  .students {
+    margin-top: 20px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+  .glow-on-hover {
+  margin-left: 30px;
+  }
+}
+
+@media (max-width: 768px) {
     .fads {
-      width: 100%; 
-      height: auto;  
-      padding-bottom: 400px;
-      margin: 0 auto; 
-      padding: 20px; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .button-1 {
-      margin-left: 40px;
-      margin-top: 10px;
+  
+    .detention-form-container {
+      order: 1; /* Yuqoriga chiqarish */
+      width: 100%; /* Kichkina ekranga moslashish */
+      margin-bottom: 20px; /* Pastki qism uchun bo'sh joy */
     }
-    
-    .glow-on-hover {
-      width: 80%;  
-      height: 45px;  
-      font-size: 16px;  
-      border-radius: 8px;  
-      margin-left: 50px;
+  
+    .student-info-container {
+      order: 2; /* Pastda bo'lish */
+      width: 100%; /* Kichkina ekranga moslashish */
+    }
+  }
+  
+
+@media (max-width: 600px) {
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fads {
+    height: auto;
+  }
+
+  .button-1 {
+    margin-left: 15px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+    .fads {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      width: 120%; /* Kichik ekranga moslashish */
+      height: auto; /* Balandlikni moslashuvchan qilish */
+    }
+  
+    .detention-form-container {
+      order: 1; /* Yuqorida bo'lish */
+      width: 120%; /* Ekran kengligiga moslashish */
+      margin-bottom: 0px; /* Bo'sh joy qo'shish */
+      padding: 10px; /* Ichki bo'sh joy */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Engil soyali dizayn */
+      border-radius: 8px; /* Qirralarni yumshatish */
+      background-color: white; /* Oq fon */
     }
 
-    .glow-on-hover:before {
-      background-size: 300%;
-      filter: blur(4px);  
+    .first-text 
+    {
+        font-size: 13px;
     }
-    .bg-white {
-      padding: 20px;  
+    .texts {
+        font-size: 16px;
     }
-
+    .second-text 
+    {
+        font-size: 16px;
+    }
+  
+    .student-info-container {
+      order: 2; /* Pastda bo'lish */
+      width: 100%; /* Ekran kengligiga moslashish */
+      padding: 10px; /* Ichki bo'sh joy */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Engil soyali dizayn */
+      border-radius: 8px; /* Qirralarni yumshatish */
+      background-color: white; /* Oq fon */
+    }
+  
+    .button-1, .glow-on-hover {
+      width: 90%; /* Tugmalarni moslashtirish */
+      height: 40px;
+      font-size: 14px; /* Matn hajmini kichraytirish */
+      margin: 5px 0; /* Tugmalar orasida joy */
+    }
+  
     input,
     select {
-      width: 100%;  
-      padding: 12px;  
-      font-size: 16px; 
-      border-radius: 8px;  
+      width: 90%; /* To'liq kenglik */
+      padding: 8px; /* Ichki bo'sh joy */
+      font-size: 14px; /* Matn hajmini kichraytirish */
+      margin-bottom: 10px; /* Joy ajratish */
     }
-
-    
-    .students {
-      margin-top: 20px;
-      padding: 20px;
-    }
-  }
-
-  @media (max-width: 700px) {
-    body {
-      display: flex;
-      align-content: center;
-      align-items: center;
-    }
-    .glow-on-hover {
-    margin-left: 30px;
+  
+    #student-list {
+      height: 200px; /* Cheklangan balandlik */
+      overflow-y: auto; /* Scroll qo'shish */
+      scrollbar-width: thin; /* Scroll chiziqni kichik qilish */
     }
   }
-
-  @media (max-width: 600px) {
-
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .fads {
-      height: auto;
-    }
-
-    .button-1 {
-      margin-left: 15px;
-      height: 40px;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .fads {
-      width: 110%;  /* Уменьшаем ширину блока до 90% */
-      height: 570px;  
-    margin: 0 auto; 
-      padding: 15px;  
-    }
-    .button-1 {
-      width: 150px;
-      height: 35px;
-      margin-top: 25px;
-      align-items: center;
-      margin-left: 20px;
-    }
-
-    .students {
-      height: 300px;  
-      width: 120%;
-    margin-top: 0;
-    }
-    .glow-on-hover {
-      margin-bottom: 29px;
-      height: 35px;
-      margin-left: 20px;
-    }
-
-    .fade-in {
-      font-size: 9px;
-      font-weight: bold;
-    }
-  }
+  
